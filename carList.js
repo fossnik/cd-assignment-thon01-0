@@ -4,9 +4,9 @@ var carList = {
     if (this.cars.length === 0) {
       console.log('Your Car list is empty!');
     } else {
-      console.log('My Cars:\n#Car Title#\t\t#Category#\t\t#Availability#\n');
+      console.log('My Cars:\n#Car Title#\t\t#Category#\t\t#Availability#\t\t#Rental Fee#\n');
       for (var i = 0; i < this.cars.length; i++) {
-        if (this.cars[i].completed === true) {
+        if (this.cars[i].available === true) {
           console.log(this.cars[i].carName, '\t\t' this.cars[i].vehicleCategory, '\t\tYes');
         } else {
           console.log(this.cars[i].carName, '\t\t', this.cars[i].vehicleCategory, '\t\tNo');
@@ -14,18 +14,19 @@ var carList = {
       }
     }
   },
-  addCar: function(carName, vehicleCategory) {
+  addCar: function(carName, vehicleCategory, rentalFee) {
     // validate vehicle category
     vehicleCategory = vehicleCategory.toLowerCase();
     if (vehicleCategory === "sedan" | vehicleCategory === "suv" | vehicleCategory === "sports") {
       this.cars.push({
         carName: carName,
         vehicleCategory: vehicleCategory,
+        rentalFee: rentalFee,
         available: false
       });
     } else {
-      console.log("You entered an invalid vehicle category");
-      console.log("\nArgument Syntax:\t addCar(<Vehicle Name>,<Vehicle Category>")
+      console.log("Invalid Syntax!\n");
+      console.log("\n\tArgument Syntax:\naddCar(<Vehicle Name>,<Vehicle Category>,<rentalFee>");
     }
   },
   deleteCar: function(position) {
