@@ -27,7 +27,7 @@ var carList = {
     // display quantity by category
     console.log('Sedans:\t', sedans, '\nSUVs:\t', suvs, '\nSports Cars:\t', sports);
   },
-  addCar: function(carName, vehicleCategory, rentalFee) {
+  addCar: function(carName, vehicleCategory, rentalFee, available) {
     // validate vehicle category
     vehicleCategory = vehicleCategory.toLowerCase();
     if (vehicleCategory === "sedan" | vehicleCategory === "suv" | vehicleCategory === "sports") {
@@ -35,21 +35,21 @@ var carList = {
         carName: carName,
         vehicleCategory: vehicleCategory,
         rentalFee: rentalFee,
-        available: false
+        available: available
       });
+    this.displayCars();
     } else {
       console.log("Invalid Syntax!\n");
-      console.log("\n\tArgument Syntax:\naddCar(<Vehicle Name>,<Vehicle Category>,<rentalFee>)");
+      console.log("\n\tArgument Syntax:\naddCar(<Vehicle Name>,<Vehicle Category>,<rentalFee>,<available [true/false]>)");
     }
-    this.displayCars();
-  },
-  deleteCar: function(position) {
-    this.cars.splice(position, 1);
-    this.displayCars();
-  },
-  toggleAvailable: function(position) {
-    var Car = this.cars[position];
-    Car.available = !Car.available;
-    this.displayCars();
+  // },
+  // deleteCar: function(position) {
+  //   this.cars.splice(position, 1);
+  //   this.displayCars();
+  // },
+  // toggleAvailable: function(position) {
+  //   var Car = this.cars[position];
+  //   Car.available = !Car.available;
+  //   this.displayCars();
   }
 };
