@@ -28,10 +28,6 @@ var carList = {
       console.log("\nArgument Syntax:\t addCar(<Vehicle Name>,<Vehicle Category>")
     }
   },
-  changeCar: function(position, carText) {
-    this.Cars[position].carText = carText;
-    this.displayCars();
-  },
   deleteCar: function(position) {
     this.Cars.splice(position, 1);
     this.displayCars();
