@@ -1,25 +1,25 @@
 var carList = {
-  Cars: [],
+  cars: [],
   displayCars: function() {
-    if (this.Cars.length === 0) {
+    if (this.cars.length === 0) {
       console.log('Your Car list is empty!');
     } else {
       console.log('My Cars:\n#Car Title#\t\t#Category#\t\t#Availability#\n');
-      for (var i = 0; i < this.Cars.length; i++) {
-        if (this.Cars[i].completed === true) {
-          console.log(this.Cars[i].carText, '\t\t' this.Cars[i].vehicleCategory, '\t\tYes');
+      for (var i = 0; i < this.cars.length; i++) {
+        if (this.cars[i].completed === true) {
+          console.log(this.cars[i].carName, '\t\t' this.cars[i].vehicleCategory, '\t\tYes');
         } else {
-          console.log(this.Cars[i].carText, '\t\t', this.Cars[i].vehicleCategory, '\t\tNo');
+          console.log(this.cars[i].carName, '\t\t', this.cars[i].vehicleCategory, '\t\tNo');
         }
       }
     }
   },
-  addCar: function(carText, vehicleCategory) {
+  addCar: function(carName, vehicleCategory) {
     // validate vehicle category
     vehicleCategory = vehicleCategory.toLowerCase();
     if (vehicleCategory === "sedan" | vehicleCategory === "suv" | vehicleCategory === "sports") {
-      this.Cars.push({
-        carText: carText,
+      this.cars.push({
+        carName: carName,
         vehicleCategory: vehicleCategory,
         available: false
       });
@@ -29,11 +29,11 @@ var carList = {
     }
   },
   deleteCar: function(position) {
-    this.Cars.splice(position, 1);
+    this.cars.splice(position, 1);
     this.displayCars();
   },
   toggleAvailable: function(position) {
-    var Car = this.Cars[position];
+    var Car = this.cars[position];
     Car.available = !Car.available;
     this.displayCars();
   }
