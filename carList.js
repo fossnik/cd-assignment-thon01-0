@@ -17,7 +17,7 @@ var carList = {
       if (this.cars[i].vehicleCategory === "sedan") {
         sedans++;
       }
-      if (this.cars[i].vehicleCategory === "suvs") {
+      if (this.cars[i].vehicleCategory === "suv") {
         suvs++;
       }
       if (this.cars[i].vehicleCategory === "sports") {
