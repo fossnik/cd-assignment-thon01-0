@@ -4,27 +4,28 @@ var carList = {
     if (this.Cars.length === 0) {
       console.log('Your Car list is empty!');
     } else {
-      console.log('My Cars:');
+      console.log('My Cars:\n#Car Title#\t\t#Category#\t\t#Availability#\n');
       for (var i = 0; i < this.Cars.length; i++) {
         if (this.Cars[i].completed === true) {
-          console.log(this.Cars[i].carText, 'Category: ', this.Cars[i].vehicleCategory, ' Available: Yes');
+          console.log(this.Cars[i].carText, '\t\t' this.Cars[i].vehicleCategory, '\t\tYes');
         } else {
-          console.log(this.Cars[i].carText, 'Category: ', this.Cars[i].vehicleCategory, ' Available: Yes');
+          console.log(this.Cars[i].carText, '\t\t', this.Cars[i].vehicleCategory, '\t\tNo');
         }
       }
     }
   },
   addCar: function(carText, vehicleCategory) {
     // validate vehicle category
+    vehicleCategory = vehicleCategory.toLowerCase();
     if (vehicleCategory === "sedan" | vehicleCategory === "suv" | vehicleCategory === "sports") {
       this.Cars.push({
         carText: carText,
         vehicleCategory: vehicleCategory,
         available: false
       });
-      this.displayCars();
     } else {
       console.log("You entered an invalid vehicle category");
+      console.log("\nArgument Syntax:\t addCar(<Vehicle Name>,<Vehicle Category>")
     }
   },
   changeCar: function(position, carText) {
